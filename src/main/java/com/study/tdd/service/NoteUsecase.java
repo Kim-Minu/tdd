@@ -9,14 +9,14 @@ import java.util.Optional;
 public interface NoteUsecase {
 
     // note CRUD
-    public void addNote(Note newNote);
-    public void modifyNote(Note modifiedNote);
-    public void removeNote(Long noteId);
-    public Optional<Note> getNote(Long noteId);
-    public List<Note> noteList(String title);
+    Note addNote(Note newNote);
+    Note modifyNote(Note modifiedNote);
+    void removeNote(Long noteId);
+    Note getNote(Long noteId);
+    List<Note> noteList(String title);
 
     // subject CRUD
-    public void registSubject();
-    public void removeSubject();
-    public List<Subject> subjectList();
+    List<Subject> registSubject(Long noteId, Long subjectId);
+    List<Subject> removeSubject(Long noteId, Long subjectId);
+    List<Subject> subjectList(Long noteId);
 }

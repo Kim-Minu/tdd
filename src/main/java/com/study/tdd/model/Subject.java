@@ -4,12 +4,10 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
-public class Subject {
-    private Long subjectId;
-    private String title;
-    private String content;
-    private ParaEnum para;
-}
+public record Subject (
+     Long subjectId,
+     String title,
+     String content,
+     ParaEnum para
+) {}
+
