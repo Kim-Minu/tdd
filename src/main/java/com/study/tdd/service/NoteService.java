@@ -1,5 +1,6 @@
 package com.study.tdd.service;
 
+import com.study.tdd.exception.EntityNotFoundException;
 import com.study.tdd.model.Note;
 import com.study.tdd.model.Subject;
 import com.study.tdd.port.NotePort;
@@ -38,7 +39,7 @@ public class NoteService implements NoteUsecase{
     @Override
     public Note getNote(Long noteId) {
         return notePort.getNote(noteId)
-                .orElseThrow(() -> new RuntimeException("Failed to get note"));
+                .orElseThrow(() -> new EntityNotFoundException("Failed to get note"));
 
     }
 
