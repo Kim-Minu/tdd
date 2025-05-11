@@ -33,6 +33,9 @@ public class NoteService implements NoteUsecase{
 
     @Override
     public void removeNote(Long noteId) {
+
+        getNote(noteId);
+
         notePort.removeNote(noteId);
     }
 

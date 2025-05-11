@@ -1,5 +1,6 @@
 package com.study.tdd.service;
 
+import com.study.tdd.exception.EntityNotFoundException;
 import com.study.tdd.model.Note;
 import com.study.tdd.model.ParaEnum;
 import com.study.tdd.model.Subject;
@@ -15,6 +16,7 @@ import java.util.List;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -117,7 +119,9 @@ class NoteServiceTest {
                 new Subject(2L, "subject2", "content2", ParaEnum.AREA),
                 new Subject(3L, "subject3", "content3", ParaEnum.RESOURCE)
         );
+
         when(subjectPort.subjectList(any())).thenReturn(mockRemoveList);
+
         assertThat(noteService.removeSubject(noteId, subjectId)).hasSize(2);
 
 
@@ -135,4 +139,19 @@ class NoteServiceTest {
         //noteService.subjectList();
         // then
     }
+
+
+
+    @Test
+    void exceptionTest() {
+
+        var noteId = 2L;
+
+        assertThatThrownBy(() -> noteService.removeNote(noteId))
+                .isInstanceOf(EntityNotFoundException.class)
+        ;
+
+    }
+
+
 }
