@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Optional;
 
 public interface NotePort {
+
     Optional<Note> addNote(Note newNote);
 
     Optional<Note> getNote(Long noteId);
@@ -17,7 +18,5 @@ public interface NotePort {
     List<Note> noteList(String title);
 
     List<Note> notes(Long subjectId);
-
-
 
 }

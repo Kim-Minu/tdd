@@ -20,13 +20,13 @@ public class NoteController {
         return ResponseEntity.ok(noteService.getNote(noteId));
     }
 
-    @PostMapping("")
+    @PostMapping
     public ResponseEntity<Note> addNote(@RequestBody Note note) {
         return ResponseEntity.ok(noteService.addNote(note));
 
     }
 
-    @PutMapping("")
+    @PutMapping
     public ResponseEntity<Note> modifyNote(@RequestBody Note note) {
         return ResponseEntity.ok(noteService.modifyNote(note));
     }

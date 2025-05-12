@@ -16,6 +16,7 @@ import java.util.Optional;
 public class NoteService implements NoteUsecase{
 
     private final NotePort notePort;
+
     private final SubjectPort subjectPort;
 
     @Override
